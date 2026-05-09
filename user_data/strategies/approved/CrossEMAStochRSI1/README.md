@@ -16,44 +16,43 @@ De kern van de bronstrategie is behouden:
 - `CrossEMAStochRSI1Hyperopt.py`: aparte alias voor een gehyperopte variant.
 - `CrossEMAStochRSI1Hyperopt.json`: opgeslagen hyperopt-parameters. Deze variant is bewaard voor referentie, maar niet het hoofdadvies.
 
-## Aanbevolen configs
+## Actieve bot-config
 
-- `config/top2_taowmtx_unlimited_2.json`
-  - hoofdadvies
-  - pairs: `TAO/USDT`, `WMTX/USDT`
-  - `stake_amount = unlimited`
-  - `max_open_trades = 2`
-- `config/top2_taoatom_unlimited_1.json`
-  - tweede kandidaat
-  - pairs: `TAO/USDT`, `ATOM/USDT`
-  - `stake_amount = unlimited`
-  - `max_open_trades = 1`
-- `config/top2_taowmtx_hyperopt_unlimited_2.json`
-  - gehyperopte testvariant
-  - niet aanbevolen als standaardprofiel
+De live bot-instantie staat niet in deze strategy-map, maar onder:
+
+- `user_data/bots/live/CrossEMAStochRSI1/`
+
+Daarbij horen:
+
+- `config/CrossEMAStochRSI1.live.json`: publieke live-config zonder secrets.
+- `config/CrossEMAStochRSI1.live.private.json`: lokale private config met API/Telegram secrets.
+- `data/tradesv3.CrossEMAStochRSI1.live.sqlite`: live trade database.
+- `docker-compose.yml`: containerdefinitie voor de live bot.
+
+De huidige live-config gebruikt `VolumePairList` met de top 10 assets op KuCoin. Bestandsnamen bevatten bewust geen cryptomuntnamen meer.
+
+## Historische onderzoeksconfigs
+
+De oude `top2_*` configs waren onderzoeksartefacten uit de vorige mapstructuur. Ze zijn niet meer de actieve live-config. De historische conclusie blijft wel relevant:
+
+- hoofdadvies uit backtest: `TAO/USDT` + `WMTX/USDT`, `max_open_trades = 2`
+- tweede kandidaat uit backtest: `TAO/USDT` + `ATOM/USDT`, `max_open_trades = 1`
+- hyperopt-variant: bewaard als referentie, niet aanbevolen als standaardprofiel
 
 ## Gebruik
 
-Backtest hoofdprofiel:
+Live bot starten via de botmap:
 
 ```bash
-python -m freqtrade backtesting \
-  --config user_data/archived-strategies/TrueStrategy/CrossEMAStochRSI1/config/top2_taowmtx_unlimited_2.json \
-  --strategy CrossEMAStochRSI1 \
-  --strategy-path user_data/archived-strategies/TrueStrategy/CrossEMAStochRSI1 \
-  --timerange 20251215-20260331 \
-  --backtest-directory user_data/archived-strategies/TrueStrategy/CrossEMAStochRSI1/results/manual_top2
+cd user_data/bots/live/CrossEMAStochRSI1
+./run_live.sh
 ```
 
-Backtest tweede kandidaat:
+Strategie laden vanuit de nieuwe approved-map:
 
 ```bash
-python -m freqtrade backtesting \
-  --config user_data/archived-strategies/TrueStrategy/CrossEMAStochRSI1/config/top2_taoatom_unlimited_1.json \
-  --strategy CrossEMAStochRSI1 \
-  --strategy-path user_data/archived-strategies/TrueStrategy/CrossEMAStochRSI1 \
-  --timerange 20251215-20260331 \
-  --backtest-directory user_data/archived-strategies/TrueStrategy/CrossEMAStochRSI1/results/manual_top2_alt
+python -m freqtrade list-strategies \
+  --strategy-path user_data/strategies/approved/CrossEMAStochRSI1
 ```
 
 ## Belangrijke noot

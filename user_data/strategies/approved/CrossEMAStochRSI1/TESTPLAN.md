@@ -13,13 +13,14 @@
 
 ### Strategievalidatie
 
-- `python -m py_compile user_data/archived-strategies/TrueStrategy/CrossEMAStochRSI1/CrossEMAStochRSI1.py`
-- `python -m py_compile user_data/archived-strategies/TrueStrategy/CrossEMAStochRSI1/CrossEMAStochRSI1Hyperopt.py`
-- `python -m freqtrade list-strategies --strategy-path user_data/archived-strategies/TrueStrategy/CrossEMAStochRSI1`
+- `python -m py_compile user_data/strategies/approved/CrossEMAStochRSI1/CrossEMAStochRSI1.py`
+- `python -m py_compile user_data/strategies/approved/CrossEMAStochRSI1/CrossEMAStochRSI1Hyperopt.py`
+- `python -m freqtrade list-strategies --strategy-path user_data/strategies/approved/CrossEMAStochRSI1`
 
 ### Brede baseline
 
-- `python -m freqtrade backtesting --config .../config/no_dot_sol_unlimited_3.json --strategy CrossEMAStochRSI1 --timerange 20251215-20260331`
+- Gebruik de historische configs uit `user_data/strategies/archived/imported-legacy-archive-20260509/TrueStrategy/CrossEMAStochRSI1/config/` wanneer de oude backtests exact gereproduceerd moeten worden.
+- Gebruik voor de live bot-instantie `user_data/bots/live/CrossEMAStochRSI1/config/CrossEMAStochRSI1.live.json`.
 
 ### Single-pair screen
 
@@ -81,6 +82,7 @@ Voor:
 
 ## Verwachte keuze
 
-- standaardprofiel: `config/top2_taowmtx_unlimited_2.json`
-- secundaire kandidaat: `config/top2_taoatom_unlimited_1.json`
+- historische standaardvariant: `TAO/WMTX`, voorheen `top2_taowmtx_unlimited_2.json`
+- historische secundaire kandidaat: `TAO/ATOM`, voorheen `top2_taoatom_unlimited_1.json`
+- actieve live-config: `user_data/bots/live/CrossEMAStochRSI1/config/CrossEMAStochRSI1.live.json`
 - hyperopt-profiel: alleen bewaard als referentie, niet als voorkeursset
