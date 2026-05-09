@@ -1,0 +1,75 @@
+{
+  "bot_name": "CrossEMAStochRSI1-live",
+  "strategy": "CrossEMAStochRSI1",
+  "max_open_trades": 3,
+  "stake_currency": "USDT",
+  "stake_amount": "unlimited",
+  "tradable_balance_ratio": 0.98,
+  "fiat_display_currency": "USD",
+  "dry_run": false,
+  "db_url": "sqlite:////freqtrade/user_data/bots/live/CrossEMAStochRSI1/data/tradesv3.CrossEMAStochRSI1.live.sqlite",
+  "timeframe": "1h",
+  "cancel_open_orders_on_exit": false,
+  "use_exit_signal": true,
+  "exit_profit_only": false,
+  "ignore_roi_if_entry_signal": false,
+  "unfilledtimeout": {
+    "entry": 10,
+    "exit": 10,
+    "exit_timeout_count": 0,
+    "unit": "minutes"
+  },
+  "entry_pricing": {
+    "price_side": "other",
+    "use_order_book": false,
+    "order_book_top": 1,
+    "price_last_balance": 1,
+    "check_depth_of_market": {
+      "enabled": false,
+      "bids_to_ask_delta": 1
+    }
+  },
+  "exit_pricing": {
+    "price_side": "other",
+    "use_order_book": false,
+    "order_book_top": 1
+  },
+  "exchange": {
+    "name": "kucoin",
+    "outdated_offset": 65,
+    "ccxt_config": {
+      "enableRateLimit": true,
+      "rateLimit": 2000,
+      "options": {
+        "defaultType": "spot",
+        "fetchOHLCV": {
+          "rateLimit": 2000
+        }
+      }
+    },
+    "ccxt_async_config": {
+      "enableRateLimit": true,
+      "rateLimit": 2000
+    },
+    "pair_whitelist": [],
+    "pair_blacklist": []
+  },
+  "pairlists": [
+    {
+      "method": "VolumePairList",
+      "number_assets": 10,
+      "sort_key": "quoteVolume",
+      "refresh_period": 1800
+    }
+  ],
+  "telegram": {
+    "enabled": false
+  },
+  "api_server": {
+    "enabled": false
+  },
+  "initial_state": "running",
+  "internals": {
+    "process_throttle_secs": 15
+  }
+}

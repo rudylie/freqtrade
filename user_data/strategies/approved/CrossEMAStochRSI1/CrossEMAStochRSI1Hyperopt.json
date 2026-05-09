@@ -1,0 +1,41 @@
+{
+  "strategy_name": "CrossEMAStochRSI1Hyperopt",
+  "params": {
+    "roi": {
+      "0": 1.0
+    },
+    "stoploss": {
+      "stoploss": -0.99
+    },
+    "trailing": {
+      "trailing_stop": false,
+      "trailing_stop_positive": null,
+      "trailing_stop_positive_offset": 0.0,
+      "trailing_only_offset_is_reached": false
+    },
+    "max_open_trades": {
+      "max_open_trades": 2
+    },
+    "buy": {
+      "adx_length": 7,
+      "adx_min": 19.1,
+      "atr_length": 13,
+      "atr_pct_min": 0.015,
+      "buy_stoch_rsi_max": 0.92,
+      "fast_ema_length": 17,
+      "require_cross": true,
+      "require_price_above_slow": false,
+      "require_slow_rising": false,
+      "slow_ema_length": 76,
+      "stoch_rsi_length": 26
+    },
+    "sell": {
+      "adx_exit_min": 25.3,
+      "sell_stoch_rsi_min": 0.4,
+      "use_fast_below_slow_exit": false,
+      "use_price_below_fast_exit": false
+    }
+  },
+  "ft_stratparam_v": 1,
+  "export_time": "2026-04-07 10:57:44.964267+00:00"
+}

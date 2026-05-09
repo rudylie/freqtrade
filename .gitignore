@@ -5,6 +5,28 @@ config*.json
 *.sqlite-wal
 logfile.txt
 user_data/*
+!user_data/bots/
+!user_data/bots/README.md
+!user_data/bots/live/
+!user_data/bots/live/CrossEMAStochRSI1/
+!user_data/bots/live/CrossEMAStochRSI1/**
+user_data/bots/**/config/*.private.json
+user_data/bots/**/data/*
+!user_data/bots/**/data/.gitignore
+user_data/bots/**/logs/*
+!user_data/bots/**/logs/.gitignore
+!user_data/strategies/
+!user_data/strategies/README.md
+!user_data/strategies/approved/
+!user_data/strategies/approved/CrossEMAStochRSI1/
+!user_data/strategies/approved/CrossEMAStochRSI1/**
+user_data/strategies/archived/**
+!user_data/strategies/archived/
+!user_data/strategies/archived/legacy-loose-20260509/
+!user_data/strategies/archived/legacy-loose-20260509/README.md
+!user_data/templates/
+!user_data/templates/bot/
+!user_data/templates/bot/.gitkeep
 !user_data/strategy/sample_strategy.py
 !user_data/notebooks
 !user_data/models
@@ -116,3 +138,10 @@ target/
 !config_examples/config_freqai.example.json
 
 docker-compose-*.yml
+
+# Local private configs
+config/
+!user_data/bots/live/CrossEMAStochRSI1/config/
+!user_data/bots/live/CrossEMAStochRSI1/config/.gitignore
+!user_data/bots/live/CrossEMAStochRSI1/config/CrossEMAStochRSI1.live.json
+user_data/bots/live/CrossEMAStochRSI1/config/*.private.json
